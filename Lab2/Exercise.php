@@ -5,35 +5,7 @@
 <title>Hobby</title>
 </head>
     <body>
-        
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" >
-            <label for="fname">Name: </label> <br>
-            <input type="text" id="fname" name="name">
-            <br>
-            
-            <label for="fgender">Gender: </label> <br>
-            <input type="radio" name="gender" value="Male">Male <br>
-            <input type="radio" name="gender" value="Female">Female <br>
-            
-            
-            <label for="funi">University: </label> <br>
-            <input type="text" id="funi" name="uni"> <br>
-            
-            <label for="fclass">Class: </label> <br>
-            <input type="text" id="fclass" name="clas"> <br>
-            
-            <label>Hobbies: </label> <br>
-            <input type="checkbox" name="hobby[]" value="Listening to music">Listen to music <br>
-            <input type="checkbox" name="hobby[]" value="Reading books"> Reading books<br>
-            <input type="checkbox" name="hobby[]" value="Playing games"> Playing games<br>
-            <input type="checkbox" name="hobby[]" value="Playing sports"> Playing sports<br>
-            <input type="checkbox" name="hobby[]" value="Cooking"> Cooking<br>
-           	<input type="checkbox" name="hobby[]" value="Traveling"> Traveling<br> 
-            
-          <input type="submit" value="Submit"> 
-        
         <?php
-		if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $name = $_POST["name"];
             $gender = $_POST["gender"];
             $uni = $_POST["uni"];
@@ -51,7 +23,6 @@
 					$index++;
 				}
 			}
-		}
         ?>
     </form>
     </body>
