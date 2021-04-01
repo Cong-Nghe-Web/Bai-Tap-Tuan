@@ -10,13 +10,15 @@
             $gender = $_POST["gender"];
             $uni = $_POST["uni"];
             $clas = $_POST["clas"];
-            $hobbies = $_POST["hobby"];
+			$add= $_POST["add"];
             echo "<br>Hello, $name<br>";
-            echo "You are a $gender. You are studying at $clas, $uni <br>";
-            $hobbies = $_POST["hobby"];
-            echo "Your hobby is <br>";
+            echo "You are a $gender. You are studying at $clas, $uni and your address is $add <br>";
             $index = 0;
-			if (count($hobbies)!= 0){
+			if (empty($_POST["hobby"])){
+				echo "You have'n choose.";
+			} else {
+				$hobbies = $_POST["hobby"];
+				echo "Your hobby is <br>";
 				while($index < count($hobbies)){
 					echo $index+1;
 					echo ". $hobbies[$index] <br>";
