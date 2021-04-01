@@ -90,8 +90,10 @@
 			echo "<br>";
 			echo ("More information<br>");
 			echo "<br>";
-			if($h >12) 
-                        echo ("In 12 hours, the time and date is $h-12:$i:$s PM, $date/$month/$year<br>");
+			if($h >12) {
+                $x= $h-12;
+                echo ("In 12 hours, the time and date is $x:$i:$s PM, $date/$month/$year<br>");
+            }
                     else 
                         echo ("In 12 hours, the time and date is $h:$i:$s AM, $date/$month/$year<br>");
                     	echo ("<br>");
