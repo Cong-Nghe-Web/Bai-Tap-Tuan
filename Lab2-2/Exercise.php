@@ -76,10 +76,7 @@
       		<td align="left"><input type="reset" value="Reset"></td>
       	</tr>
     </table>
-      
-    </form>
-</body>
-</html><?php
+      <?php
 	  	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	  		$yourName= $_POST["yourName"];
 			$date= $_POST["date"];
@@ -121,3 +118,6 @@
                             echo ("This month has 28 days!<br>");
 		}
 	  ?>
+      </form>
+</body>
+</html>
