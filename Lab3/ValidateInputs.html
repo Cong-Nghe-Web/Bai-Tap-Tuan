@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+        function validate() {
+            if (document.myForm.Name.value || document.myForm.EMail.value == "") {
+                alert("Please provide your information");
+                return false;
+            }
+
+            var emailID = document.myForm.Email.value;
+            atpos = emailID.indexOf("@");
+            dotpos = emailID.lastIndexOf(".");
+
+            if (atpos < 1 || (dotpos - atpos < 2)) {
+                alert("Please enter correct email ID")
+                document.myForm.Email.focus();
+                return false;
+            }
+            return (true);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <form action="ex4.php" name="myForm" method="POST" onsubmit="return(validate())">
+
+        <h5>Name</h5>
+        <input type="text" name="Name" placeholder="Nguyen Van An" required>
+        <h5>Email</h5>
+        <input type="text" name="Email" placeholder="annguyenvan@gmail.com" required>
+        <h5>Phone Number</h5>
+        <input type="tel" name="Phone" placeholder="0123456789" pattern="[0]{1}[0-9]{9}" required>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
