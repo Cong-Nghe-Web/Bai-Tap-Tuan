@@ -5,36 +5,31 @@
         <script type="text/javascript">
              const doc= document.getElementById('myForm');
             function WriteCookie(){
-                if (doc.fname.value==""){
-                    alert("Invalide!");
-                    return;
-                } else if (doc.fadd.value==""){
-                    alert("Invalide!");
-                    return;
-                }
 
                 var now= new Date();
                 now.setDate( now.getDate() + 1);
-
-                cookievalue= escape(doc.fname.value) + ";";
-                document.cookie= "name=" + cookievalue;
-                document.cookie = "expires=" + now.toUTCString() + ";"
-                document.write("Setting Cookies : "+ "name"+ cookievalue);
+                document.cookie= "name=" + doc.fname.value;
+                document.cookie= "address=" + doc.fadd.value;
+                document.cookie= "blog=" + doc.fblog.value;
             }
 
             
         </script>
     </head>
     <body>
-        <form id="myForm" action="">
+        <form id="myForm" action="" method="POST">
             <table>
                 <tr>
                     <td>Enter name:</td>
-                    <td><input type="text" name="fname"></td>
+                    <td><input type="text" name="fname" placeholder="Nguyen Van An"></td>
                 </tr>
                 <tr>
                     <td>Address:</td>
-                    <td><address><input type="text" name="fadd"></address></td>
+                    <td><address><input type="text" name="fadd" placeholder="Dong Da Ha Noi"></address></td>
+                </tr>
+                <tr>
+                    <td>Favorite Blog: </td>
+                    <td><input type="text" name="fblog" placeholder="Mon an moi ngay"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="button" value="Set Cookie" onclick="WriteCookie()"></td>
