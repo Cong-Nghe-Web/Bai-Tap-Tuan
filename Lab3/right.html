@@ -9,6 +9,7 @@
                 document.cookie= "name=" + escape(document.getElementById('myForm').fname.value)+ "; expires=" + now.toUTCString() + ";";
                 document.cookie= "address=" + escape(document.getElementById('myForm').fadd.value)+ "; expires=" + now.toUTCString() + ";";
                 document.cookie= "blog=" + escape(document.getElementById('myForm').fblog.value) + "; expires=" + now.toUTCString() + ";";
+                window.parent.location.reload();
             }
         </script>
     </head>
