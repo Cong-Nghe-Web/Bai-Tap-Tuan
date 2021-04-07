@@ -1,24 +1,31 @@
 <html>
     <head>
         <script type="text/javascript">
-            function ReadCookie(){
-                var allcookies = document.cookie;
-                document.write ("All Cookies : "+ allcookies);
+            function innit(){
+                var resutlTag= document.getElementById('resutl');
 
-                cookiearray = allcookies.split(';');
+                resutlTag.innerHTML= "Name: "+ getCookie('name')+ "<br>Address: "+ getCookie('address')+
+                 "<br>Favorite Blog:"+ getCookie('blog');
+              
+            }
 
-                for (var i=0; i<cookiearray.length, i++){
-                    name =cookiearray[i].split('=')[0];
-                    value = cookiearray[i].split('=')[1];
-                    document.write("Key is : "+ name+ " and Value is : "+ value);
+            function getCookie(name){
+                var cookies= document.cookie;
+                cookiearray = cookies.split(';');
+
+                for(var i=0; i<cookiearray.length; i++){
+                    var str = cookiearray[i];
+                    if (str.indexOf(name)==0){
+                        return str.substring(name.length);
+                    }
                 }
+                return '';
             }
         </script>
     </head>
-    <body>
-        <form id="myForm" action="">
-            <p> Click the following button and see the result:</p>
-            <input type="button" value="Get Cookie" onclick="ReadCookie()">
-        </form>
+    <body onload="innit()">
+        <div id="resutl">
+
+        </div>
     </body>
 </html>
