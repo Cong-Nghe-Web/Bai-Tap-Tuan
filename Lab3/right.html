@@ -1,37 +1,75 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
-        <title>Right</title> 
-        <script type="text/javascript">
-            function WriteCookie(){
-                var now= new Date();
-                now.setDate( now.getDate() + 1);
-                document.cookie= "name=" + escape(document.getElementById('myForm').fname.value)+ "; expires=" + now.toUTCString() + ";";
-                document.cookie= "address=" + escape(document.getElementById('myForm').fadd.value)+ "; expires=" + now.toUTCString() + ";";
-                document.cookie= "blog=" + escape(document.getElementById('myForm').fblog.value) + "; expires=" + now.toUTCString() + ";";
-                window.parent.location.reload();
-            }
-        </script>
-    </head>
-    <body>
-        <form id="myForm" action="" method="POST">
-            <table>
-                <tr>
-                    <td>Enter name:</td>
-                    <td><input type="text" name="fname" placeholder="Nguyen Van An"></td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td><address><input type="text" name="fadd" placeholder="Dong Da Ha Noi"></address></td>
-                </tr>
-                <tr>
-                    <td>Favorite Blog: </td>
-                    <td><input type="text" name="fblog" placeholder="Mon an moi ngay"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="button" value="Set Cookie" onclick="WriteCookie()"></td>
-                </tr>
-            </table>
-        </form>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>right</title>
+    <style>
+        body {
+            font-size: 20px;
+            background: rgb(197, 160, 174);
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(201, 63, 93, 0.5);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <h1>POST BLOG</h1>
+    <form name="myForm" onsubmit="return validate()">
+        <div class="form-child">
+            <h5>Name</h5>
+            <input type="text" id="name" name="Name" class="include" onclick="return setCookieName(name)">
+        </div>
+
+        <div class="form-child">
+            <h5>Email</h5>
+            <input type="email" id="email" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+        </div>
+        <div class="form-child">
+            <h5>Favorite Blog</h5>
+            <input type="text" id="nameBlog" name="nameBlog" class="include">
+        </div>
+
+
+        <div class="form-child">
+            <h5>Content</h5>
+            <input type="text" id="content" name="content" class="include">
+        </div>
+        <input id="button" type="button" value="Add blog" onclick="addBlog()">
+    </form>
+
+    <script>
+        function addBlog() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var nameBlog = document.getElementById("nameBlog").value;
+            var content = document.getElementById("content").value;
+            var date = new Date();
+
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000));
+            var expires = "expires=" + date.toUTCString();
+
+            document.cookie = "name=" + name + ";" + expires;
+            document.cookie = "email=" + email + ";" + expires;
+            document.cookie = "nameBlog=" + nameBlog + ";" + expires;
+            document.cookie = "content=" + content + ";" + expires;
+
+            window.parent.location.reload();
+        }
+    </script>
+
+</body>
+
 </html>
