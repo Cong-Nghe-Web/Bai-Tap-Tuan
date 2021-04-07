@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
-    <title>Validate Inputs</title> 
+
 <head>
     <script type="text/javascript">
         function validate() {
-            if (document.myForm.Name.value || document.myForm.Email.value == "") {
-                alert("Please provide your information");
-                return false;
+            var email = document.myForm.Email.value
+            var name = document.myForm.Name.value
+            if (name.trim().length == 0 || email.trim().length == 0) {
+                alert("Please provide your information")
+                return false
             }
-
-            var emailID = document.myForm.Email.value;
-            atpos = emailID.indexOf("@");
-            dotpos = emailID.lastIndexOf(".");
-
-            if (atpos < 1 || (dotpos - atpos < 2)) {
-                alert("Please enter correct email ID")
-                document.myForm.Email.focus();
-                return false;
-            }
-            return (true);
         }
     </script>
 
@@ -27,14 +17,15 @@
 
 <body>
 
-    <form action="ex4.php" name="myForm" method="POST" onsubmit="return(validate())">
+    <form name="myForm" onsubmit="return validate()">
 
         <h5>Name</h5>
-        <input type="text" name="Name" placeholder="Nguyen Van An" required>
+        <input type="text" name="Name" placeholder="Nguyen Van An">
         <h5>Email</h5>
-        <input type="text" name="Email" placeholder="annguyenvan@gmail.com" required>
+        <input type="email" name="Email" placeholder="annguyenvan@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
         <h5>Phone Number</h5>
-        <input type="tel" name="Phone" placeholder="0123456789" pattern="[0]{1}[0-9]{9}" required>
+        <input type="tel" name="Phone" placeholder="0123456789" pattern="[0]{1}[0-9]{9}">
+        <br>
         <input type="submit" value="Submit">
     </form>
 
