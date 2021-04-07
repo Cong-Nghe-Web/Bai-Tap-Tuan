@@ -39,37 +39,4 @@
             </table>
         </form>
     </body>
-</html>ction WriteCookie(){
-
-                var now= new Date();
-                now.setDate( now.getDate() + 1);
-                document.cookie= "name=" + doc.fname.value;
-                document.cookie= "address=" + doc.fadd.value;
-                document.cookie= "blog=" + doc.fblog.value;
-            }
-
-            
-        </script>
-    </head>
-    <body>
-        <form id="myForm" action="" method="POST">
-            <table>
-                <tr>
-                    <td>Enter name:</td>
-                    <td><input type="text" name="fname" placeholder="Nguyen Van An"></td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td><address><input type="text" name="fadd" placeholder="Dong Da Ha Noi"></address></td>
-                </tr>
-                <tr>
-                    <td>Favorite Blog: </td>
-                    <td><input type="text" name="fblog" placeholder="Mon an moi ngay"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="button" value="Set Cookie" onclick="WriteCookie()"></td>
-                </tr>
-            </table>
-        </form>
-    </body>
 </html>
