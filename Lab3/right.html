@@ -16,14 +16,6 @@
                 document.cookie= "address=" + escape(document.getElementById('myForm').fadd.value)+ "; expires=" + now.toUTCString() + ";";
                 document.cookie= "blog=" + escape(document.getElementById('myForm').fblog.value) + "; expires=" + now.toUTCString() + ";";
             }
-
-            function deleteCookie(name, address, blog){
-                var now = new Date();
-                now.setMonth( now.getMonth() - 1 );
-                document.cookie= name + "=; expires=" + now.toUTCString() + ";"+
-                                address + "=; expires=" + now.toUTCString() + ";"+
-                                blog + "=; expires=" + now.toUTCString() + ";";
-            }
         </script>
     </head>
     <body>
