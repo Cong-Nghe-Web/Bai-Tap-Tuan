@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
+        <title>Right</title> 
+        <script type="text/javascript">
+             const doc= document.getElementById('myForm');
+            function WriteCookie(){
+                if (doc.fname.value==""){
+                    alert("Invalide!");
+                    return;
+                } else if (doc.fadd.value==""){
+                    alert("Invalide!");
+                    return;
+                }
+
+                var now= new Date();
+                now.setDate( now.getDate() + 1);
+
+                cookievalue= escape(doc.fname.value) + ";";
+                document.cookie= "name=" + cookievalue;
+                document.cookie = "expires=" + now.toUTCString() + ";"
+                document.write("Setting Cookies : "+ "name"+ cookievalue);
+            }
+
+            
+        </script>
+    </head>
+    <body>
+        <form id="myForm" action="">
+            <table>
+                <tr>
+                    <td>Enter name:</td>
+                    <td><input type="text" name="fname"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><address><input type="text" name="fadd"></address></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="Set Cookie" onclick="WriteCookie()"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
