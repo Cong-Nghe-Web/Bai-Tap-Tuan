@@ -1,29 +1,19 @@
 <html>
     <head>
         <script type="text/javascript">
-            function innit(){
-                var resutlTag= document.getElementById('resutl');
 
-                resutlTag.innerHTML= "Name: "+ getCookie('name')+ "<br>Address: "+ getCookie('address')+
-                 "<br>Favorite Blog:"+ getCookie('blog');
-              
-            }
-
-            function getCookie(name){
+            function getCookie(){
                 var cookies= document.cookie;
                 cookiearray = cookies.split(';');
-
                 for(var i=0; i<cookiearray.length; i++){
-                    var str = cookiearray[i];
-                    if (str.indexOf(name)==0){
-                        return str.substring(name.length);
-                    }
+                   var name= unescape(cookiearray[i].split('=')[0]);
+                   var value= unescape(cookiearray[i].split('=')[1]);
+                   document.write(name+": "+ value+ "<br>");
                 }
-                return '';
             }
         </script>
     </head>
-    <body onload="innit()">
+    <body onload="getCookie()">
         <div id="resutl">
 
         </div>
