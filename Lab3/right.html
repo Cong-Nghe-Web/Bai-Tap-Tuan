@@ -1,42 +1,61 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
-        <title>Right</title> 
-        <script type="text/javascript">
-             const doc= document.getElementById('myForm');
-            fun<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0", charset="utf-8">
-        <title>Right</title> 
-        <script type="text/javascript">
-            function WriteCookie(){
-                var now= new Date();
-                now.setDate( now.getDate() + 1);
-                document.cookie= "name=" + escape(document.getElementById('myForm').fname.value)+ "; expires=" + now.toUTCString() + ";";
-                document.cookie= "address=" + escape(document.getElementById('myForm').fadd.value)+ "; expires=" + now.toUTCString() + ";";
-                document.cookie= "blog=" + escape(document.getElementById('myForm').fblog.value) + "; expires=" + now.toUTCString() + ";";
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Left Form</title>
+    <script language="javascript" type="text/javascript">
+        function validate() {
+            var email = document.myForm.Email.value
+            var name = document.myForm.Name.value
+            if (name.trim().length == 0 || email.trim().length == 0) {
+                alert("Please provide your information")
+                return false
             }
-        </script>
-    </head>
-    <body>
-        <form id="myForm" action="" method="POST">
-            <table>
-                <tr>
-                    <td>Enter name:</td>
-                    <td><input type="text" name="fname" placeholder="Nguyen Van An"></td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td><address><input type="text" name="fadd" placeholder="Dong Da Ha Noi"></address></td>
-                </tr>
-                <tr>
-                    <td>Favorite Blog: </td>
-                    <td><input type="text" name="fblog" placeholder="Mon an moi ngay"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="button" value="Set Cookie" onclick="WriteCookie()"></td>
-                </tr>
-            </table>
-        </form>
-    </body>
+        }
+
+        function WriteCookie() {
+
+            cookieName = escape(document.myForm.name.value) + ";";
+            document.cookie = "Name=" + cookieName;
+            document.write("Setting Cookies : " + "name=" + cookieName);
+
+            cookieEmail = escape(document.myForm.email.value) + ";";
+            document.cookie = "Email=" + cookieEmail;
+            document.write("Setting Cookies : " + "Email=" + cookieEmail);
+
+            cookieNameBlog = escape(document.myForm.nameBlog.value) + ";";
+            document.cookie = "NameBlog=" + cookieNameBlog;
+            document.write("Setting Cookies : " + "Name Blog=" + cookieNameBlog);
+
+            cookieContent = escape(document.myForm.content.value) + ";";
+            document.cookie = "Content=" + cookieContent;
+            document.write("Setting Cookies : " + "Content=" + cookieContent);
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form name="myForm" onsubmit="return validate()">
+
+        <h5>Name</h5>
+        <input type="text" id="name" name="Name" class="include" onclick="return setCookieName(name)">
+
+        <h5>Email</h5>
+        <input type="email" id="email" name="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+
+        <h5>Favorite Blog</h5>
+        <input type="text" id="nameBlog" name="nameBlog" class="include">
+
+        <h5>Content</h5>
+        <input type="text" id="content" name="content" class="include">
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
 </html>
