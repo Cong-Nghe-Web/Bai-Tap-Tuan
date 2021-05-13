@@ -1,0 +1,29 @@
+@charset "utf-8";
+ body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #header {
+            background: #f00;
+            width: 100%;
+        }
+
+        #leftcol {
+        background: #fff;
+        float: left;
+        width: 80%;
+        height: 500px;
+        }
+        #content {
+        background: yellow;
+        float: right;
+        width: 20%;
+        height: 500px;
+        }
+        #footer {
+        background: blue;
+        clear: both;
+        width: 100%;
+        }
+
