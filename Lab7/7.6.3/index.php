@@ -12,3 +12,4 @@ $xml = simplexml_load_file($file) or die ("Unable to load");
 foreach ($xml->sin as $s){
     echo "$s <br>";
 }
+?>

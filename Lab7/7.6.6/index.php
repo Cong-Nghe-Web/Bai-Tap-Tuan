@@ -5,7 +5,7 @@ $xml = simplexml_load_file($file) or die ("Unable to load !!!");
 
 ?>
 
-<<html>
+<html>
     <head>
         <title>Review57</title>
     </head>

@@ -25,6 +25,4 @@ foreach ($xml->shape as $shape){
         $area = $shape['length'] * $shape['width'];
     echo $area. "<br>";
 }
-
-
 ?>
